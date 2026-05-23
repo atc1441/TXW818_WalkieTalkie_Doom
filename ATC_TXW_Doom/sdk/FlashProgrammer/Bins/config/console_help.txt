@@ -1,0 +1,72 @@
+----------------------------- config file format explain ----------------------
+DebugServerSetting
+    UseDDC: true/false
+    EnableTRST: true/false
+    ICECLk: ICE clock(khz), usually 12000
+    DelayMTCR: usually 10
+
+FlashProgramSession
+    CommandType: value is 0(write data to flash chip), 1(read data from flash chip)
+    TargetConfig
+        AlgorithmFile: The flash chip driver file path.
+        EraseType: value is 0(chip erase), 1(erase sectors), 2(erase range), 3(not erase)
+        EraseRangStart: value is 0x0 ~ 0xffffffff(4GB)
+        EraseRangLength: value is 0x0 ~ 0xffffffff(4GB)
+        ConnectType: value is 0(normal, not hard reset), 1(hard reset)
+        Timeout: seconds, usually 60
+        RestAndRun: true/false
+        ResetType: value is 0(soft reset), 1(hard reset)
+        RestValue: value is a number
+        RunMode: true/false, usually false
+    
+    TargetFile
+        DumpFileType: value is 0(Hex file), 1(bin file)
+        DumpBinFileInfo   (valid when DumpFileType is 0)
+            FilePath: the save file path
+            StartAddress: the memory address
+            Length: bytes count
+        DumpHexFileInfo     (valid when DumpFileType is 1)
+            FilePath: the save file path
+            StartAddress: the memory address
+            Length: bytes count
+
+    TargetObjectArray: this is array, below are examples of all types
+        [
+            {
+                "Type": 0,          // 0(elf file)
+                "Program": true,    // program or not
+                "Verify": true,     // verify or not
+                "FilePath": "C:/path_of_elf/demo.elf"
+            },
+            {
+                "Type": 1,          // 1(hex file)
+                "Program": true,    // program or not
+                "Verify": true,     // verify or not
+                "FilePath": "C:/path_of_hex/demo.ihex"
+            },
+            {
+                "Type": 2,          // 2(bin file)
+                "Program": true,    // program or not
+                "Verify": true,     // verify or not
+                "TargetAddr": 0,    // value is a number of address
+                "FilePath": "C:/path_of_bin/demo.bin"
+            },
+            {
+                "Type": 3,          // 3(advance type, use this to program regular data)
+                "Program": true,
+                "Verify": false,
+                "Start": 0,         // the start address of target
+                "Length": 4096,     
+                "Value": 4660,      // the unit value
+                "Regular": 0        // Growth type , 0(none), 1(up), 2(down)
+            },            
+            {
+                "Type": 4,
+                "Program": true,
+                "FilePath": ""
+            },
+            ...     // you can add more type of above types.
+                    // The target will execute in the order of the array
+                    // We recommend using the UI interface
+        ]
+   

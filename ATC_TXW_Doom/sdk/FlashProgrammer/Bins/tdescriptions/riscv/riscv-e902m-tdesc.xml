@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<target>
+  <architecture>riscv</architecture>
+  <feature name="org.gnu.gdb.riscv.cpu">
+    <reg name="zero" bitsize="32" regnum="0"  type="int"/>
+    <reg name="ra"   bitsize="32" regnum="1"  type="code_ptr"/>
+    <reg name="sp"   bitsize="32" regnum="2"  type="data_ptr"/>
+    <reg name="gp"   bitsize="32" regnum="3"  type="data_ptr"/>
+    <reg name="tp"   bitsize="32" regnum="4"  type="data_ptr"/>
+    <reg name="t0"   bitsize="32" regnum="5"  type="int"/>
+    <reg name="t1"   bitsize="32" regnum="6"  type="int"/>
+    <reg name="t2"   bitsize="32" regnum="7"  type="int"/>
+    <reg name="fp"   bitsize="32" regnum="8"  type="data_ptr"/>
+    <reg name="s1"   bitsize="32" regnum="9"  type="int"/>
+    <reg name="a0"   bitsize="32" regnum="10"  type="int"/>
+    <reg name="a1"   bitsize="32" regnum="11" type="int"/>
+    <reg name="a2"   bitsize="32" regnum="12" type="int"/>
+    <reg name="a3"   bitsize="32" regnum="13" type="int"/>
+    <reg name="a4"   bitsize="32" regnum="14" type="int"/>
+    <reg name="a5"   bitsize="32" regnum="15" type="int"/>
+    <reg name="pc"   bitsize="32" regnum="32" type="code_ptr"/>
+  </feature>
+  <feature name="org.gnu.gdb.riscv.csr">
+    <!-- Regnum for CSR is (csr_regno + 65), used by remote protocol -->
+    <!-- M-mode Information -->
+    <reg name="mvendorid" bitsize="32" regnum="0xf52" type="int"/>
+	<reg name="marchid"   bitsize="32" regnum="0xf53" type="int"/>
+	<reg name="mimpid"    bitsize="32" regnum="0xf54" type="int"/>
+	<reg name="mhartid"   bitsize="32" regnum="0xf55" type="int"/>
+    <!-- M-mode Exception Setting -->
+    <reg name="mstatus"   bitsize="32" regnum="0x341" type="int"/>
+	<reg name="misa"      bitsize="32" regnum="0x342" type="int"/>
+	<reg name="mie"       bitsize="32" regnum="0x345" type="int"/>
+	<reg name="mtvec"     bitsize="32" regnum="0x346" type="int"/>
+	<reg name="mtvt"      bitsize="32" regnum="0x348" type="int"/>
+	<!-- M-mode Exception Handling -->
+	<reg name="mscratch"  bitsize="32" regnum="0x381" type="int"/>
+	<reg name="mepc"      bitsize="32" regnum="0x382" type="int"/>
+	<reg name="mcause"    bitsize="32" regnum="0x383" type="int"/>
+	<reg name="mtval"     bitsize="32" regnum="0x384" type="int"/>
+	<reg name="mip"       bitsize="32" regnum="0x385" type="int"/>
+	<reg name="mnxti"     bitsize="32" regnum="0x386" type="int"/>
+	<reg name="mintstatus"    bitsize="32" regnum="0x387" type="int"/>
+	<reg name="mscratchcsw"   bitsize="32" regnum="0x389" type="int"/>
+	<reg name="mscratchcswl"  bitsize="32" regnum="0x38a" type="int"/>
+	<reg name="mclicbase"     bitsize="32" regnum="0x391" type="int"/>
+	<!-- M-mode Exception Handling -->
+	<reg name="pmpcfg0"    bitsize="32" regnum="0x3e1" type="int"/>
+	<reg name="pmpcfg1"    bitsize="32" regnum="0x3e2" type="int"/>
+	<reg name="pmpcfg2"    bitsize="32" regnum="0x3e3" type="int"/>
+	<reg name="pmpcfg3"    bitsize="32" regnum="0x3e4" type="int"/>
+
+	<reg name="pmpaddr0"    bitsize="32" regnum="0x3f1" type="int"/>
+	<reg name="pmpaddr1"    bitsize="32" regnum="0x3f2" type="int"/>
+	<reg name="pmpaddr2"    bitsize="32" regnum="0x3f3" type="int"/>
+	<reg name="pmpaddr3"    bitsize="32" regnum="0x3f4" type="int"/>
+	<reg name="pmpaddr4"    bitsize="32" regnum="0x3f5" type="int"/>
+	<reg name="pmpaddr5"    bitsize="32" regnum="0x3f6" type="int"/>
+	<reg name="pmpaddr6"    bitsize="32" regnum="0x3f7" type="int"/>
+	<reg name="pmpaddr7"    bitsize="32" regnum="0x3f8" type="int"/>
+	<reg name="pmpaddr8"    bitsize="32" regnum="0x3f9" type="int"/>
+	<reg name="pmpaddr9"    bitsize="32" regnum="0x3fa" type="int"/>
+	<reg name="pmpaddr10"   bitsize="32" regnum="0x3fb" type="int"/>
+	<reg name="pmpaddr11"   bitsize="32" regnum="0x3fc" type="int"/>
+	<reg name="pmpaddr12"   bitsize="32" regnum="0x3fd" type="int"/>
+	<reg name="pmpaddr13"   bitsize="32" regnum="0x3fd" type="int"/>
+	<reg name="pmpaddr14"   bitsize="32" regnum="0x3ff" type="int"/>
+	<reg name="pmpaddr15"   bitsize="32" regnum="0x400" type="int"/>
+	<!-- M-mode Counter -->
+	<reg name="mcycle"    bitsize="32" regnum="0xb41" type="int"/>
+	<reg name="minstret"  bitsize="32" regnum="0xb43" type="int"/>
+	<reg name="mcycleh"   bitsize="32" regnum="0xbc1" type="int"/>
+	<reg name="minstreth" bitsize="32" regnum="0xbc3" type="int"/>
+
+	<!-- M-mode Extention -->
+	<reg name="mxstatus"  bitsize="32" regnum="0x801"  type="int"/>
+	<reg name="mhcr"      bitsize="32" regnum="0x802" type="int"/>
+	<reg name="mraddr"    bitsize="32" regnum="0x821" type="int"/>
+	<reg name="mexstatus" bitsize="32" regnum="0x822" type="int"/>
+	<reg name="mnmicause" bitsize="32" regnum="0x823" type="int"/>
+	<reg name="mnmipc"    bitsize="32" regnum="0x824" type="int"/>
+
+	<!-- For Debug -->
+	<reg name="dcsr" bitsize="32" regnum="0x7f1" type="int"/>
+	<reg name="dpc"  bitsize="32" regnum="0x7f2" type="int"/>
+  </feature>
+  <feature name="org.gnu.gdb.riscv.virtual">
+	<reg name="priv"  bitsize="32" regnum="0x1041" type="int"/>
+  </feature>
+</target>

@@ -1,0 +1,13 @@
+ACTION!="add", SUBSYSTEM!="usb_device", GOTO="cklink_rules_end"
+
+ATTR{idVendor}=="c510", ATTR{idProduct}=="b200", MODE="666"
+ATTR{idVendor}=="c510", ATTR{idProduct}=="b210", MODE="666"
+ATTR{idVendor}=="c510", ATTR{idProduct}=="b211", MODE="666"
+ATTR{idVendor}=="c510", ATTR{idProduct}=="b212", MODE="666"
+
+ATTR{idVendor}=="32bf", ATTR{idProduct}=="b200", MODE="666"
+ATTR{idVendor}=="32bf", ATTR{idProduct}=="b210", MODE="666"
+ATTR{idVendor}=="32bf", ATTR{idProduct}=="b211", MODE="666"
+ATTR{idVendor}=="32bf", ATTR{idProduct}=="b212", MODE="666"
+
+LABEL="cklink_rules_end"
